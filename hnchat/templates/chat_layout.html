@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    
+        <!-- Font Awasome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}"> 
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}"/>
+
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>Hey Neighbor</title>
+        {% endif %}
+    </head>
+    <body>
+        <header>
+            <nav class="barra"> 
+                <!--
+                    ROOMS
+                    <form class="ROOM" action="/room" method="GET"> 
+                        <input name="room" class="idsala" type="text" autocomplete="" placeholder="Insert Group Name/ID">
+                        <button type="submit" id="create-room" class="buttona" text="create room" style="height: 20px" >  </button>    
+                    </form>
+                -->
+                <div class="navbar-nar">
+                    {% if current_user.is_authenticated %}
+                        <div>
+                            <a class="nav-item nav-link" href="{{ url_for('admin_dash') }}">Admin</a>
+                            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                        </div>
+
+
+                </nav>
+            
+                  
+                    
+                    
+                {% endif %}
+            </div>
+        </header>
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+        </div>
+
+        <!-- jQuery first, then Bootstrap JS -->
+        <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/socket.io.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/socketio.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $('#action_menu_btn').click(function(){
+                    $('.action_menu').toggle();
+                });
+                    });
+        </script>
+        <script>
+            window.setInterval(function() {
+                var elem = document.getElementById('msg_scroll');
+                elem.scrollTop = elem.scrollHeight;
+            }, 500);
+        </script>
+    </body>
+</html>

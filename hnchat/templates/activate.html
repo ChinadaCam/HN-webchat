@@ -1,0 +1,29 @@
+{% if expired %}
+
+<h1>The token is expired</h1>
+<p>Your account was deleted because token expired. Please create another <a href="{{ url_for('register') }}">here</a>.</p>
+{% elif token %}
+<h1>Your account was activated. You will be redirect soon.</h1>
+{% else %}
+<h2>Please check your email: {{ email }}</h2>
+</p>
+<h3></h3>
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+  <legend class="border-bottom mb-4">Haven't you received the email?</legend>
+  <div class="form-group">
+    {{ form.submit(class="btn btn-outline-info") }}
+  </div>
+</form>
+{% endif %}
+{% if token %}
+<script>    
+    window.setTimeout(function(){
+
+      // Move to chat after x time
+      window.location.href = "{{ url_for('chat') }}";
+
+      }, 2000);
+
+</script>
+{% endif %}
