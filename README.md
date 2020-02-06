@@ -13,9 +13,8 @@
 >         * midia
 >     * templates
 >     * ...
-> * install 
->     * install.py
->     * requirements.txt
+> 
+> * requirements.txt
 > * run.py
 
 
@@ -57,7 +56,7 @@
 >
 ## ATTENTION
 >### Create an Admin account:
->   Go to \hnchat\__init__.py and search for the commented lines, read them carefully. Any problems please contact us.
+>   Go to \hnchat\\__init__.py and search for the commented lines, read them carefully. Any problems please contact us.
 >
 >
 >
