@@ -1,5 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+
+<div class="row">
+
+    <div class="col-md-5">
+        <img class="booking-img" src="../static/img/frontimg.png" alt="eqweqw">
+
+    </div>
+    <div class="col-md-5">    
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -15,7 +25,7 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.email(class="form-control form-control-lg") }}
+                        {{ form.email(class="form-control form-control-lg hn-chat") }}
                     {% endif %}
                 </div>
                 <div class="form-group">
@@ -28,21 +38,24 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.password(class="form-control form-control-lg") }}
+                        {{ form.password(class="form-control form-control-lg hn-chat") }}
                     {% endif %}
                 </div>
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
-            <small class="text-muted ml-2">
+            <small class="extra">
                 <a href="#Soon">Forgot Password?</a>
+            </small>
+            <br>
+            <small class="text-muted">
+                <a class="ml-2" href="{{ url_for('register') }}"> Need An Account?  Sign Up Now</a>
             </small>
         </form>
     </div>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
-        </small>
-    </div>
+        
+</div>
+</div>
+</div>
 {% endblock content %}

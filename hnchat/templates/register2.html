@@ -1,19 +1,5 @@
 {% extends 'layout.html' %}
 {% block content %}
-
-<!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register.css') }}">
-
-
-
-    <div class="row">
-
-    <div class="col-md-5">
-        <img class="booking-img" src="../static/img/frontimg.png" alt="eqweqw">
-
-    </div>
-    <div class="col-md-5">
-    
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -29,11 +15,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.username(class="form-control form-control-lg hn-chat") }}
+                        {{ form.username(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form.email.label(class="form-control-label hn-chat") }}
+                    {{ form.email.label(class="form-control-label") }}
                     {% if form.email.errors %}
                         {{ form.email(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -42,11 +28,11 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.email(class="form-control form-control-lg hn-chat") }}
+                        {{ form.email(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form.password.label(class="form-control-label hn-chat") }}
+                    {{ form.password.label(class="form-control-label") }}
                     {% if form.password.errors %}
                         {{ form.password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -54,12 +40,12 @@
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
-                    {% else %} 
-                        {{ form.password(class="form-control form-control-lg hn-chat") }}
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form.confirm_password.label(class="form-control-label hn-chat") }}
+                    {{ form.confirm_password.label(class="form-control-label") }}
                     {% if form.confirm_password.errors %}
                         {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
@@ -68,21 +54,18 @@
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.confirm_password(class="form-control form-control-lg hn-chat") }}
+                        {{ form.confirm_password(class="form-control form-control-lg") }}
                     {% endif %}
-                </div> 
+                </div>
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
         </form>
-    
+    </div>
     <div class="border-top pt-3">
         <small class="text-muted">
             Already have an Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In.</a>
         </small>
     </div>
-</div>
-</div>
-</div>
 {% endblock content %}
