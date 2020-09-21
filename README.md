@@ -23,10 +23,10 @@
 > ## How to install 
 > 
 > ### Requirements:
-> - Microsoft Visual C++ Build Tools
 > - Python 3.8
 > - pip
 > - virtualenv
+> - MySQL
 > 
 > First we recomend you to create an virtual enviroment using the **virtualenv** command:
 > ```
@@ -60,7 +60,7 @@
 >
 >
 >
-## Realizado por:
+## Made by:
 >
 > * [Miguel Correia](https://github.com/D4rkw0lv3s)
 > * [Tiago Faustino ](https://github.com/ChinadaCam)
